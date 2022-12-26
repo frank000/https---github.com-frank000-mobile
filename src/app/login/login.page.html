@@ -1,0 +1,58 @@
+
+
+<ion-content>
+  <div #apresentation class="apresentation-logo"  >
+    <img class="apresentation-logo" src="assets/img/logo.png" width="900vw" />
+  </div>
+  <div #initial class="ion=padding">
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Login</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form #loginForm="ngForm" novalidate style="margin: 5px;">
+          <ion-list>
+            <ion-item>
+              <ion-label position="stacked" color="primary">Usuário</ion-label>
+              <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+                required>
+              </ion-input>
+            </ion-item>
+
+            <ion-text color="danger">
+              <p [hidden]="username.valid || submitted === false" class="ion-padding-start">
+                Usuário é obrigatório
+              </p>
+            </ion-text>
+
+            <ion-item>
+              <ion-label position="stacked" color="primary">Senha</ion-label>
+              <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+              </ion-input>
+            </ion-item>
+
+            <ion-text color="danger">
+              <p [hidden]="password.valid || submitted === false" class="ion-padding-start">
+                Senha é obrigatória.
+              </p>
+            </ion-text>
+          </ion-list>
+
+          <ion-row>
+            <ion-col>
+              <ion-button (click)="onLogin(loginForm)" type="submit" expand="block">Entrar</ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button (click)="onSignup()" color="light" expand="block">Cadastra-se</ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+        <ion-item-divider>
+        </ion-item-divider>
+      </ion-card-content>
+
+    </ion-card>
+
+  </div>
+</ion-content>
